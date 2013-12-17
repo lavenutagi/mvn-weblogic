@@ -1,0 +1,13 @@
+#--- doc:ref: http://docs.oracle.com/cd/E24329_01/web.1211/e24443/maven_deployer.htm#BABDGJJG
+ cd $MW_HOME
+ cd wlserver_10.3/server/lib/
+ java -jar  wljarbuilder.jar  -profile weblogic-maven-plugin
+ ls -l weblogic-maven-plugin.jar 
+
+ cp weblogic-maven-plugin.jar /tmp
+ cd /tmp
+ jar xvf weblogic-maven-plugin.jar 
+ cat META-INF/maven/com.oracle.weblogic/weblogic-maven-plugin/pom.xml 
+
+ mvn install:install-file -Dfile=/tmp/weblogic-maven-plugin.jar -DpomFile=META-INF/maven/com.oracle.weblogic/weblogic-maven-plugin/pom.xml
+
